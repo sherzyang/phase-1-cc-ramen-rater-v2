@@ -26,6 +26,29 @@ const displayRamens = (data) => {
     img.dataset.rating = `${data[i]['rating']}`
     img.dataset.comment = `${data[i]['comment']}`
   }
+
+    // Have a default ramen up when the DOM loads
+    // Get the default picture src 
+    let defaultImage = document.getElementById("ramen-detail").getElementsByClassName("detail-image")[0];    
+    // Change the default picture src
+    defaultImage.src = data[0]['image']
+    
+    // Display the image's name 
+    let defaultName = document.getElementById("ramen-detail").getElementsByClassName("name")[0]; 
+    defaultName.innerText = data[0]['name']
+
+    // Display the image's restaurant 
+    let defaultRestaurant = document.getElementById("ramen-detail").getElementsByClassName("restaurant")[0]; 
+    defaultRestaurant.innerText = data[0]['restaurant']
+    
+    // Display the meal's rating 
+    let defaultRating = document.querySelector("p")
+    defaultRating.innerText = `${data[0]['rating']} / 10 `
+
+    // Display the customer's comment
+    let defaultComment = document.getElementById("comment-display")
+    defaultComment.innerText = data[0]['comment']
+
 };
 
 // Handle clicks to the existing images of ramen
